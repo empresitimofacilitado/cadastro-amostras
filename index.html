@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <title>Cadastro de Amostras</title>
+</head>
+
+<body>
+  <header>
+    <div class="nav-caixa">
+      <a class="btn btn-dark" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
+        aria-controls="offcanvasExample">
+        Menu<font-awesome-icon icon="fa-solid fa-bars" />
+      </a>
+      <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
+        aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <div class="nav-pacote">
+            <ul class="nav-lista">
+              <li class="nav-item">
+                <a class="nav-link active" href="#"><router-link to="/produtos">Amostras</router-link> </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"><router-link to="/locais">Locais</router-link> </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"><router-link to="/enderecos">Endereços</router-link> </a>
+              </li>
+              <li class="nav-item">
+                <form class="formulario-login" @submit="sair()">
+                  <button type="submit" name="sair" class="btn btn-primary">Sair <font-awesome-icon
+                      icon="fa-solid fa-arrow-right-from-bracket" /></button>
+                </form>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main>
+
+    <div class="container text-center mt-5">
+      <div class="col">
+        <div class="row">
+          <div class="titulo">
+            <h1>Início</h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="botoes">
+            <div class="cadastro mt-5">
+              <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Cadastrar amostras <font-awesome-icon icon="fa-solid fa-plus" />
+              </button>
+              <div class="modal fade modal-hover" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Cadastro de amostras</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form action="">
+                      <div class="modal-body">
+                        <label for="campo-pratileira">Prateleira </label>
+                        <input type="text" class="form-control mb-2" name="prateleira" id="campo-prateleira" maxlength="5" required>
+                        <label for="campo-data-amostra"> Data da amostra </label>
+                        <input type="date" class="form-control mb-2" name="data" id="campo-data-amostra" required>
+                        <label for="campo-lacre">Lacre</label>
+                        <input type="number" class="form-control mb-2" name="lacre" id="campo-lacre" required>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
+                        <button type="submit" class="btn btn-primary">Salvar</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="decarte mt-5">
+              <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Descartar amostras <font-awesome-icon icon="fa-solid fa-trash"></font-awesome-icon>
+              </button>
+              <div class="modal fade modal-hover" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Descarte de amostras</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form>
+                      <div class="modal-body">
+                        <div class="table-responsive">
+                          <table class="table">
+                            <thead>
+                              <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col" colspan="1">Locais</th>
+                                <th scope="col">Opções</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <th scope="row">1</th>
+                                <td colspan="1">Local 1</td>
+                                <td><button class="btn btn-danger"><font-awesome-icon icon="fa-solid fa-trash" /></button> <button class="btn btn-warning"><font-awesome-icon icon="fa-solid fa-pencil" /></button></td>       
+                              </tr>
+                              <tr>
+                                <th scope="row">2</th>
+                                <td colspan="1">Local 2</td>
+                                <td><button class="btn btn-danger"><font-awesome-icon icon="fa-solid fa-trash" /></button> <button class="btn btn-warning"><font-awesome-icon icon="fa-solid fa-pencil" /></button></td>
+                              </tr>
+                              <tr>
+                                <th scope="row">3</th>
+                                <td colspan="1">Local 3</td>
+                                <td><button class="btn btn-danger"><font-awesome-icon icon="fa-solid fa-trash" /></button> <button class="btn btn-warning"><font-awesome-icon icon="fa-solid fa-pencil" /></button></td>
+                              </tr>
+                              <tr>
+                                <th scope="row">4</th>
+                                <td colspan="1">Local 4</td>
+                                <td><button class="btn btn-danger"><font-awesome-icon icon="fa-solid fa-trash" /></button> <button class="btn btn-warning"><font-awesome-icon icon="fa-solid fa-pencil" /></button></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
+                        <button type="submit" class="btn btn-primary">Salvar</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="consulta mt-5">
+              <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Consultar amostras <font-awesome-icon icon="fa-solid fa-magnifying-glass" />
+              </button>
+              <div class="modal fade modal-hover" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Cadastro de produtos</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form>
+                      <div class="modal-body">
+                        <label for="campo-produto">Nome do produto: </label>
+                        <input type="text" class="form-control" name="produto" id="campo-produto" required>
+                        <label for="campo-codigo">Código de barras: </label>
+                        <input type="number" class="form-control" name="codigo" id="campo-codigo" required>
+                        <label for="campo-quantidade">Quantidade: </label>
+                        <input type="number" class="form-control" min="1" name="quantidade" id="campo-quantidade"
+                          required>
+                        <label for="campo-local">Local: </label>
+                        <select class="form-select" aria-label="Default select example" name="local" id="campo-local">
+                          <option value="1">Local 1</option>
+                          <option value="2">Local 2</option>
+                          <option value="3">Local 3</option>
+                          <option value="4">Local 4</option>
+                        </select>
+                        <label for="campo-endereco">Endereço: </label>
+                        <select class="form-select" aria-label="Default select example" name="endereco"
+                          id="campo-endereco">
+                          <option value="1">Endereço 1</option>
+                          <option value="2">Endereço 2</option>
+                          <option value="3">Endereço 3</option>
+                          <option value="4">Endereço 4</option>
+                        </select>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
+                        <button type="submit" class="btn btn-primary">Salvar</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <DescarteAmostras />
+            <ConsultarAmostras />
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="https://kit.fontawesome.com/d71269c410.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+</body>
+</html>
